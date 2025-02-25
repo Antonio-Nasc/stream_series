@@ -214,9 +214,16 @@ $transition-speed: 0.3s;
   padding: 2rem;
 }
 
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .navigation {
   display: flex;
   gap: 2rem;
+  position: relative;
   margin-bottom: 1.5rem;
 }
 
@@ -240,7 +247,7 @@ $transition-speed: 0.3s;
     &::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -4px;
       left: 0;
       right: 0;
       height: 2px;
@@ -285,7 +292,13 @@ $transition-speed: 0.3s;
   width: 16px;
   height: 16px;
 }
-
+.imageWrapper {
+  flex-shrink: 0;
+  img {
+    max-height: 50px;
+    max-width: 100%;
+  }
+}
 .clockIcon {
   width: 14px;
   height: 14px;

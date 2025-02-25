@@ -3,6 +3,7 @@ import styles from "./show-details.module.scss"
 import { useState, useEffect } from "react"
 import { Episode, Show } from "../libs/types"
 import CardGeneral from "./CardGeneral"
+import telecine from "../assets/img/telecine.png"
 
 export default function ShowDetails() {
   const [activeTab, setActiveTab] = useState("GENERAL")
@@ -128,29 +129,34 @@ export default function ShowDetails() {
 
 
       <footer className={styles.footer}>
-        <nav className={styles.navigation}>
-          <button
-            className={`${styles.navButton} ${activeTab === "GENERAL" ? styles.active : ""}`}
-            onClick={() => setActiveTab("GENERAL")}
-          >
-            GENERAL
-          </button>
-          <button
-            className={`${styles.navButton} ${activeTab === "ELENCO" ? styles.active : ""}`}
-            onClick={() => setActiveTab("ELENCO")}
-          >
-            ELENCO
-          </button>
-          <button
-            className={`${styles.navButton} ${activeTab === "PRINCIPALES PREMIOS" ? styles.active : ""}`}
-            onClick={() => setActiveTab("PRINCIPALES PREMIOS")}
-          >
-            PRINCIPALES PREMIOS
-          </button>
-        </nav>
+        <div className={styles.navContainer}>
+          <nav className={styles.navigation}>
+            <button
+              className={`${styles.navButton} ${activeTab === "GENERAL" ? styles.active : ""}`}
+              onClick={() => setActiveTab("GENERAL")}
+            >
+              GENERAL
+            </button>
+            <button
+              className={`${styles.navButton} ${activeTab === "ELENCO" ? styles.active : ""}`}
+              onClick={() => setActiveTab("ELENCO")}
+            >
+              ELENCO
+            </button>
+            <button
+              className={`${styles.navButton} ${activeTab === "PRINCIPALES PREMIOS" ? styles.active : ""}`}
+              onClick={() => setActiveTab("PRINCIPALES PREMIOS")}
+            >
+              PRINCIPALES PREMIOS
+            </button>
+          </nav>
+          <div className={styles.imageWrapper}>
+            <img src={telecine} alt="Logo da Telecine" />
+          </div>
+        </div>
 
         <div className={styles.tabContent}>
-          {activeTab === "GENERAL" && <CardGeneral synopsis={show?.Synopsis}/>}
+          {activeTab === "GENERAL" && <CardGeneral synopsis={show?.Synopsis} />}
           {activeTab === "ELENCO" && (
             <div className={styles.cast}>
               <div className={styles.castList}>
