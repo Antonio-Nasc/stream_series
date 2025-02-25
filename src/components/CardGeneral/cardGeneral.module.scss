@@ -1,0 +1,39 @@
+.group{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .cardGeneral {
+    display: flex;
+    gap: 32px;
+    justify-content: flex-start;
+    padding: 16px 0;
+  }
+  
+  .synopsisContainer {
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+  }
+  
+  .synopsisTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  .synopsisText {
+    font-size: 13px !important;
+    line-height: 1.5;
+    color: #fff;
+  }
+  
+  

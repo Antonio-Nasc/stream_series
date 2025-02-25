@@ -1,0 +1,292 @@
+// Variables
+$primary-color: #1a1a1a;
+$accent-color: #4CAF50;
+$text-color: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.7);
+$transition-speed: 0.3s;
+
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.containerApp {
+  min-height: 100vh;
+  background-color: $primary-color;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $primary-color;
+  color: $text-color;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: $text-color;
+  cursor: pointer;
+  z-index: 10;
+  
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 2;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.metadata {
+  color: $text-secondary;
+  font-size: 0.9rem;
+}
+
+.episodesPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+.seasonTabs {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seasonTab {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all $transition-speed;
+  
+  &:hover {
+    color: $text-color;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  &.active {
+    color: $text-color;
+    background-color: $accent-color;
+  }
+}
+
+.episodeList {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  margin-top: 1rem;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.episodeItem {
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: background-color $transition-speed;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.selected {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.episodeHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 0.75rem;
+}
+
+.episodeNumber {
+  width: 24px;
+  color: $text-secondary;
+}
+
+.episodeTitle {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.episodeDetails {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.episodeImageWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.episodeImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.episodeDuration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $text-secondary;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.episodeSynopsis {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: $text-secondary;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 400px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  padding: 2rem;
+}
+
+.navigation {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color $transition-speed;
+  
+  &:hover {
+    color: $text-color;
+  }
+  
+  &.active {
+    color: $accent-color;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: $accent-color;
+    }
+  }
+}
+
+.tabContent {
+  color: $text-secondary;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.castMember {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.playButton {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: 0.5rem;
+  
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.playIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.clockIcon {
+  width: 14px;
+  height: 14px;
+}
