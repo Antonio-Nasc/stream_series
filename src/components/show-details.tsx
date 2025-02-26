@@ -6,6 +6,8 @@ import { Episode, Show, WatchProgress } from "../libs/types";
 import CardGeneral from "./CardGeneral";
 import AboutCast from "./AboutCast";
 import Header from "./Header";
+import Loading from "./Loading";
+import ErrorMessage from "./Error";
 
 export default function ShowDetails() {
   const [activeTab, setActiveTab] = useState("GENERAL");
@@ -65,19 +67,11 @@ export default function ShowDetails() {
   );
 
   if (isLoading) {
-    return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.loadingSpinner}>Loading...</div>
-      </div>
-    );
+    return <Loading />;
   }
-
+  
   if (error) {
-    return (
-      <div className={styles.errorContainer}>
-        <p>Error: {error}</p>
-      </div>
-    );
+    return <ErrorMessage error={error} />
   }
 
   return (
