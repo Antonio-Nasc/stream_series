@@ -37,3 +37,7 @@ export interface CardGeneralProps {
 export interface WatchProgress {
   [key: string]: number 
 }
+
+export interface AboutCastProps {
+  show: Show | null;
+}

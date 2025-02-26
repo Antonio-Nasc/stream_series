@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Play, X, Clock } from "lucide-react";
 import styles from "./show-details.module.scss";
 import { useState, useEffect } from "react";
 import { Episode, Show, WatchProgress } from "../libs/types";
 import CardGeneral from "./CardGeneral";
+import AboutCast from "./AboutCast";
 
 export default function ShowDetails() {
   const [activeTab, setActiveTab] = useState("GENERAL");
@@ -12,7 +14,7 @@ export default function ShowDetails() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null);
-  const [watchProgress, setWatchProgress] = useState<WatchProgress>({
+  const [watchProgress, _setWatchProgress] = useState<WatchProgress>({
     "EPI-01": 30,
     "EPI-02": 75,
     "EPI-03": 100,
@@ -140,7 +142,7 @@ export default function ShowDetails() {
                   <div className={styles.episodeDetails}>
                     <div className={styles.episodeImageWrapper}>
                       <img
-                        src={episode.Image || "/placeholder.svg"}
+                        src={episode.Image}
                         alt={episode.Title}
                         width={280}
                         height={157}
@@ -199,17 +201,7 @@ export default function ShowDetails() {
         </div>
         <div className={styles.tabContent}>
           {activeTab === "GENERAL" && <CardGeneral synopsis={show?.Synopsis} />}
-          {activeTab === "ELENCO" && (
-            <div className={styles.cast}>
-              <div className={styles.castList}>
-                {show?.Cast.map((actor) => (
-                  <div key={actor.ID} className={styles.castMember}>
-                    {actor.Name}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {activeTab === "ELENCO" && <AboutCast show={show} />}
         </div>
       </footer>
     </div>
