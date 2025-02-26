@@ -1,5 +1,5 @@
 import type React from "react"
-import styles from "./icon-module.scss"
+import styles from "./icon.module.scss"
 
 interface IconItemProps {
   icon: React.ReactNode

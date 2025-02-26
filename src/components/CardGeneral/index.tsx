@@ -4,10 +4,7 @@ import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDiss
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import styles from './cardGeneral.module.scss';
-
-interface CardGeneralProps {
-    synopsis?: string
-}
+import { CardGeneralProps } from '../../libs/types';
 
 export default function CardGeneral({ synopsis }: CardGeneralProps) {
     return (
