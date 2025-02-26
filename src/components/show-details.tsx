@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Episode, Show, WatchProgress } from "../libs/types";
 import CardGeneral from "./CardGeneral";
 import AboutCast from "./AboutCast";
+import Header from "./Header";
 
 export default function ShowDetails() {
   const [activeTab, setActiveTab] = useState("GENERAL");
@@ -88,18 +89,7 @@ export default function ShowDetails() {
         <button className={styles.closeButton}>
           <X className={styles.closeIcon} />
         </button>
-
-        <header className={styles.header}>
-          <h1>{show?.Title}</h1>
-          <p className={styles.metadata}>
-            80% INDICADO /{" "}
-            {show?.Genres.map((g) => g.Title)
-              .join(", ")
-              .toUpperCase()}{" "}
-            / {show?.Year} / EUA
-          </p>
-        </header>
-
+        <Header show={show}/>
         <div className={styles.episodesPanel}>
           <div className={styles.seasonTabs}>
             {seasons.map((season) => (

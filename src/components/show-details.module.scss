@@ -93,25 +93,6 @@ $transition-speed: 0.3s;
     color: $accent-color;
   }
 }
-
-.header {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  z-index: 2;
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    margin: 0px;
-  }
-}
-
-.metadata {
-  color: $text-secondary;
-  font-size: 0.9rem;
-}
-
 .episodesPanel {
   position: fixed;
   top: 0;

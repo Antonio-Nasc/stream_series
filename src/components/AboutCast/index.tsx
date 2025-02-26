@@ -1,8 +1,8 @@
-import { AboutCastProps } from '../../libs/types'
+import { ShowProps } from '../../libs/types'
 import styles from './aboutCast.module.scss'
 
 
-const AboutCast: React.FC<AboutCastProps> = ({ show }) => {
+const AboutCast: React.FC<ShowProps> = ({ show }) => {
     return (
         <div className={styles.cast}>
             <div className={styles.castList}>

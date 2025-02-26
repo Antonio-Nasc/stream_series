@@ -38,6 +38,6 @@ export interface WatchProgress {
   [key: string]: number 
 }
 
-export interface AboutCastProps {
+export interface ShowProps {
   show: Show | null;
 }
